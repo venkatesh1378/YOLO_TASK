@@ -1,4 +1,4 @@
-# YOLO V8 OBJECT DETECTION
+- # YOLO V8 OBJECT DETECTION
 The YOLO (You only look once )  which is famous  algorithm for the object detection. In this porject i used YOLOv8 pretrained model to detect the objects in the image and identify the categorty of the image which means the object class.
 if the image had multiple objects  based on toatl confidence it will display the majority confidence category object and  display it in the JSON format.through simple web interface.
 ## Features
@@ -31,8 +31,8 @@ YOLO_project
     ├── uploads/           # Uploaded images
     └── results/           # YOLO output images
 ## 2. create a virtual environment
-python -m venv venv
-venv\Scripts\activate
+- python -m venv venv
+- venv\Scripts\activate
 ## 3.run the requirements.py file
 pip install -r requirements.txt
 ## 4. run the app
