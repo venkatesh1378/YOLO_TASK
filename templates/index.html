@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YOLOv8 Object Detection</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f8f9fa;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #2c7be5;
+        }
+        
+        form {
+            background: white;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type=file] {
+            margin: 10px;
+        }
+        
+        button {
+            background: #2c7be5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #1a5dcc;
+        }
+        
+        img {
+            margin-top: 20px;
+            max-width: 80%;
+            border: 3px solid #222;
+            border-radius: 10px;
+        }
+        
+        pre {
+            background: #222;
+            color: #0f0;
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+            width: 70%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+        
+        .target-box {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>YOLOv8 Object Detection</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br>
+        <button type="submit">Detect Objects</button>
+    </form>
+
+    {% if result_image %}
+    <h2>Detection Result</h2>
+    <img src="{{ result_image }}" alt="Result Image"> {% if json_output.target %}
+    <div class="target-box">
+        <strong>Dominant Target:</strong> {{ json_output.target }}
+    </div>
+    {% endif %}
+
+    <h3>JSON Output:</h3>
+    <pre>{{ json_output | tojson(indent=4) }}</pre> {% endif %}
+</body>
+
+</html>
